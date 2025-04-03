@@ -11,7 +11,7 @@
     // };
  
     // include("conexao.php");
-    include_once("conexao.php");
+    include_once("./src/conexao.php");
 
     $getUsers = "SELECT * FROM usuario";
     $getCargos = "SELECT * FROM usuario_cargo";
@@ -39,7 +39,7 @@
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css"> -->
   </head>
     <body>
-      <a href="autenticacao.php">Login</a>
+      <a href="./src/autenticacao.html">Login</a>
       <table>
         <caption><h1>Tabela de Usuarios<strong></caption>
         <thead>
@@ -60,13 +60,13 @@
             <td><?= $usuario['senha'] ?></td>
             <td><?= empty($cargosArr[$usuario['cargo'] - 1]) ? NULL : $cargosArr[$usuario['cargo'] - 1] ?></td>
             <td>
-              <a href="excluir.php?id=<?= $usuario['id'] ?>"> <i class="fa fa-trash"></i> </a>
-              <a href="editar.php?id=<?= $usuario['id'] ?>"> <i class="fa fa-pencil"></i> </a>
+              <a href="./src/actions/excluir.php?id=<?= $usuario['id'] ?>"> <i class="fa fa-trash"></i> </a>
+              <a href="./src/actions/editar.php?id=<?= $usuario['id'] ?>"> <i class="fa fa-pencil"></i> </a>
             </td>                   
           </tr>
         <?php endforeach; ?>
       </table>
-      <form method="post" action="cadastro.php">
+      <form method="post" action="./src/cadastro.php">
       <h2>Cadastro de Usuário</h2>
       <input type="text" placeholder="Jõaozinho da Goiaba" name="nome" required>
       <br><br>
