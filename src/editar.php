@@ -1,5 +1,7 @@
 <?php
-  include_once 'conexao.php';
+  include_once './conexao.php';
+  
+  $id = $_REQUEST['id'];
 
   $cargos = $conexao->query("SELECT * FROM usuario_cargo");
 
@@ -11,7 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
   </head>
   <body>
-<form method="post" action="editar.php?id=<?php echo $id?>">
+<form method="post" action="./actions/editar.php?id=<?php echo $id?>">
       <h2>Atualização de Cadastro</h2>
       <input type="text" placeholder="Nome" name="nome" required>
       <br><br>

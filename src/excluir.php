@@ -4,5 +4,5 @@
   $sql = "DELETE FROM usuario WHERE id ='$id'";
   $conexao->query($sql);
 
-  header('Location: index.php')
+  header('Location: ../index.php')
 ?>

@@ -18,5 +18,5 @@
 
   $statement->execute();
 
-  header('Location: index.php');
+  header('Location: ../index.php');
 ?>
