@@ -60,8 +60,8 @@
             <td><?= $usuario['senha'] ?></td>
             <td><?= empty($cargosArr[$usuario['cargo'] - 1]) ? NULL : $cargosArr[$usuario['cargo'] - 1] ?></td>
             <td>
-              <a href="./src/actions/excluir.php?id=<?= $usuario['id'] ?>"> <i class="fa fa-trash"></i> </a>
-              <a href="./src/actions/editar.php?id=<?= $usuario['id'] ?>"> <i class="fa fa-pencil"></i> </a>
+              <a href="./src/excluir.php?id=<?= $usuario['id'] ?>"> <i class="fa fa-trash"></i> </a>
+              <a href="./src/editar.php?id=<?= $usuario['id'] ?>"> <i class="fa fa-pencil"></i> </a>
             </td>                   
           </tr>
         <?php endforeach; ?>
