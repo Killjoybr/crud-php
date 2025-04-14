@@ -21,7 +21,7 @@
     $cargosArr = []; 
 
     foreach ($cargos as $cargo){
-      $cargosArr[] = $cargo['Descricao'];
+      $cargosArr[] = $cargo['descricao'];
     }
 
     $cargosCombo = $conexao->query($getCargos);
@@ -33,7 +33,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MYSQL</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"> -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css"> -->
@@ -77,11 +77,17 @@
         <select name="cargo">
           <option></option>
           <?php  foreach ($cargosCombo as $cargo): ?>
-          <option label=<?= $cargo['Descricao'] ?>><?= $cargo['id'] ?></option>
+          <option label=<?= $cargo['descricao'] ?>><?= $cargo['id'] ?></option>
           <?php endforeach; ?>
           </select>
         <br><br>
         <input type="submit" value="Cadastrar" name="cadastrar">
       </form>
     </body>
+    <script>
+      let params = new URLSearchParams(document.location.search);
+      if (params.get('mensagem')) {
+        alert(params.get('mensagem'))
+      }
+    </script>
 </html>
