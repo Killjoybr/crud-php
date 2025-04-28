@@ -1,5 +1,5 @@
 <?php
-  require_once("conexao.php");
+  require_once("../conexao.php");
   $sql = "SELECT * FROM usuario";
 
   $usuarios = $conexao->query($sql);
@@ -12,13 +12,11 @@
   
   
   if(password_verify($_REQUEST['senha'], $usuario['senha'])){
-    echo "<script type='javascript'>alert('Autenticacao efetuada com sucesso!');";
-    header('location', 'index.php');
+    header('location: ../../index.php?mensagem=Autenticacao efetuada com sucesso');
   }
 
   if ($_REQUEST['senha'] && password_verify($_REQUEST['senha'], $usuario['senha']) == false){
-    echo "<script>alert('Autenticacao Malsucedida!');</script>";
-    header('location', 'index.php');
+    header('location: ../../index.php?mensagem=Autenticacao malsucedida');
   }
 
 ?>
