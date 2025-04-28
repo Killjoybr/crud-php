@@ -1,2 +1,6 @@
+# Ignore files from php common development and uni guide
 .env
 .pdf
+
+# StartBootstrap template huge files - should use cdn
+vendor
