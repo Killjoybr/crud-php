@@ -1,16 +1,3 @@
-<?php
-  if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_REQUEST['cep'])) {
-    echo "
-      <script>
-        $.ajax({
-        'url':'http://viacep.com.br/ws/". $_REQUEST['cep'] ."/json',
-        'success': ,
-        'dataType':'json',
-        })
-      </script>  
-    ";
-  }
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -126,3 +113,31 @@
 </body>
 
 </html>
+<?php
+  if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_REQUEST['cep'])) {
+      $script = "(r)=>{
+       $('#resultado-cep').html('<p> Unidade Federativa: '
+        + r.uf +
+        '<br>DDD: '
+        + r.ddd +
+        '<br>Região: '
+        + r.regiao +
+        '<br>Estado: '
+        + r.estado +
+        '<br>Localidade: '
+        + r.localidade +
+        '<br>Logradouro: '
+        + r.logradouro +
+       '</p>')
+    }";
+    echo "
+      <script>
+        $.ajax({
+        'url':'http://viacep.com.br/ws/". $_REQUEST['cep'] ."/json',
+        'success': ". $script .",
+        'dataType':'json',
+        })
+      </script>  
+    ";
+  }
+?>
