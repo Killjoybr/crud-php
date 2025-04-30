@@ -33,26 +33,24 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Crie sua Conta!</h1>
                             </div>
-                            <form class="user">
+                            <form class="user" method="POST" action="../cadastro.php">
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="João Da Silva" name="nome" required>
+                                        <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Digite seu nome:" name="nome" required>
                                     </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address" required>
+                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Digite seu e-mail:" name="email" required>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password">
+                                            id="exampleInputPassword" placeholder="Password" name="senha">
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="password" class="form-control form-control-user"
                                             id="exampleRepeatPassword" placeholder="Repeat Password">
                                     </div>
                                 </div>
-                                <a href="login.html" class="btn btn-primary btn-user btn-block">
-                                    Register Account
-                                </a>
+                                <input type="submit" class="btn btn-primary btn-user btn-block" value="Cadastrar">
                                 <hr>
                                 <a href="index.html" class="btn btn-google btn-user btn-block">
                                     <i class="fab fa-google fa-fw"></i> Register with Google
@@ -66,7 +64,7 @@
                                 <a class="small" href="forgot-password.html">Forgot Password?</a>
                             </div>
                             <div class="text-center">
-                                <a class="small" href="login.html">Already have an account? Login!</a>
+                                <a class="small" href="../../index.php">Já tem uma conta? Faça o Login!</a>
                             </div>
                         </div>
                     </div>

@@ -1,5 +1,5 @@
 <?php
-  require_once("../conexao.php");
+  require_once($_SERVER['DOCUMENT_ROOT'].'/projects/crud-php/config/conexao.php');
   $sql = "SELECT * FROM usuario";
 
   $usuarios = $conexao->query($sql);
