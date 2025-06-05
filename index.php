@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="utf-8">
@@ -56,16 +56,16 @@
                                         </div>
                                         <input type="submit" class="btn btn-primary btn-user btn-block" value="Logar">
                                         <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
+                                        <a href="#" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Entre com Google
                                         </a>
-                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                        <a href="#" class="btn btn-facebook btn-user btn-block">
                                             <i class="fab fa-facebook-f fa-fw"></i> Entre com Facebook
                                         </a>
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Esqueceu a senha?</a>
+                                        <a class="small" href="#">Esqueceu a senha?</a>
                                     </div>
                                     <div class="text-center">
                                         <a class="small" href="./src/views/register.html">Ainda não tem uma conta? Cadastre-se!</a>
@@ -100,4 +100,3 @@
       }
     </script>
 </html>
-
