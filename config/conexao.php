@@ -1,9 +1,10 @@
 <?php
-    $env = parse_ini_file('.env') ? parse_ini_file('.env') : parse_ini_file('../.env');
+    // $env = parse_ini_file('.env') ? parse_ini_file('.env') : parse_ini_file('../.env');
+    $env = parse_ini_file($_SERVER['DOCUMENT_ROOT']. '/projects/crud-php/.env');
     
-    if ($env == false) {
-      $env = parse_ini_file('../../.env');
-    }
+    // if ($env == false) {
+    //   $env = parse_ini_file('../../.env');
+    // }
 
     $host = $env["HOST"];
     $port = $env["PORT"];
