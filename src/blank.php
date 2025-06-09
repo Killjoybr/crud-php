@@ -46,9 +46,13 @@
 
                   <!-- Page Heading -->
                   <h1 class="h3 mb-4 text-gray-800">Requisição de API - ViaCEP</h1>
-                  <form method="POST" action="blank.php">
-                    <input type="text" name="cep" placeholder="Digite seu CEP:">
+                  <form method="POST" action="blank.php" class='user'>
+                  <div class='form-group'>                    
+                    <div class='form-control form-control-user'>
+                        <input type="text" name="cep" placeholder="Digite seu CEP:">
+                    </div>
                     <input type="submit" value="Pesquisar">
+                  </div>
                   </form>
                   <div class="container-fluid bg-dark text-light" id="resultado-cep">
 
