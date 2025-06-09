@@ -4,16 +4,13 @@
 
   require_once($_SERVER['DOCUMENT_ROOT'] . '/projects/crud-php/config/conexao.php');
 
-  $getUsuarios = 'SELECT * FROM usuario';
-  $getCargos = 'SELECT * FROM usuario_cargo';
+  $sql = 'SELECT u.*, c.descricao 
+        FROM usuario as u 
+            LEFT JOIN usuario_cargo as c ON u.cargo = c.id';
 
-  $usuarios = $conexao->query($getUsuarios);
-  $cargos = $conexao->query($getCargos);
-  $cargosArr = [];
+  $usuarios = $conexao->query($sql);
 
-  foreach($cargos as $cargo){
-    $cargosArr[] = $cargo['descricao'];
-  }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -420,7 +417,7 @@
                                             <td><?= $usuario['id'] ?></td>
                                             <td><?= $usuario['nome'] ?></td>
                                             <td><?= $usuario['email'] ?></td>
-                                            <td><?= empty($cargosArr[$usuario['cargo'] -1 ]) ? NULL : $cargosArr[$usuario['cargo'] - 1] ?></td>
+                                            <td><?= $usuario['descricao'] ?></td>
                                             <td><?= 'implementar exclusao '?></td>
                                             <td><?= 'implementar exclusao' ?></td>
                                           </tr>
