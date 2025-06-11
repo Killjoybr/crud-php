@@ -4,3 +4,6 @@
 
 # StartBootstrap template huge files - should use cdn
 vendor
+
+# Ignore backup files
+.bkp

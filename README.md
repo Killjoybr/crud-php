@@ -5,6 +5,8 @@
 - *Gerador de Dados falsos* [generatedata](https://generatedata.com/generator).
 - *Git* Para versionamento de código.
 - _GitHub_ Para armazenamento do repositório git na nuvem.
+- _NVim_ Editor de código.
 - _XAMPP_ Para servidor http e banco de dados.
 - PHP Linguagem utilizada no backend, juntamente com HTML para interação do usuário.
-- Classless CSS - framework utilizado para estilização do html sem declaração explícita [PicoCSS](https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css).
+- _Bootstrap_ - Biblioteca utilizada para estilizar as páginas e manter padronização.
+- _JQuery_ - Biblioteca para facilitar manipulação do DOM e requisições assíncronas.
