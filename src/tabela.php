@@ -6,7 +6,7 @@
 
   $sql = 'SELECT u.*, c.descricao 
         FROM usuario as u 
-            LEFT JOIN usuario_cargo as c ON u.cargo = c.id';
+            LEFT JOIN usuario_tipo as c ON u.usuario_tipo = c.id';
 
   $usuarios = $conexao->query($sql);
 
@@ -23,7 +23,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Tables</title>
+    <title>SH Admin</title>
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -48,7 +48,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../index.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -418,8 +418,8 @@
                                             <td><?= $usuario['nome'] ?></td>
                                             <td><?= $usuario['email'] ?></td>
                                             <td><?= $usuario['descricao'] ?></td>
-                                            <td><?= 'implementar exclusao '?></td>
-                                            <td><?= 'implementar exclusao' ?></td>
+                                            <td><?= '<a href="./actions/editar.php?id=' . $usuario['id']. '">' . '<i class="fa fa-pen"></i> </a>'?></td>
+                                            <td><?= '<a href="./actions/excluir.php?id=' . $usuario['id'] . '">' . '<i class="fa fa-trash"></i> </a>'?></td>
                                           </tr>
                                       <?php endforeach?>
                                     </tbody>
@@ -455,25 +455,7 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php include_once('./componentes/logout.php')?>
 
     <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
