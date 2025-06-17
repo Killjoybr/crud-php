@@ -16,5 +16,5 @@
 
   $statement->execute();
 
-  header('Location: ../index.php?message=Cadastro efetuado com sucesso!');
+  $statement ? header('Location: ../index.php?mensagem=Cadastro efetuado com sucesso!') : header('Location: ../index.php?mensagem=Erro ao cadastrar usuário!'); 
 ?>

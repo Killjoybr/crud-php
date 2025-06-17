@@ -3,6 +3,12 @@
 
 <?php include_once('src/componentes/heads/index.php')?>
 
+<?php 
+if(isset($_REQUEST['mensagem'])){
+    echo("<script>alert('".$_REQUEST['mensagem']."');</script>");
+}
+?>
+
 <body class="bg-gradient-primary">
 
     <div class="container">
