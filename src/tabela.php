@@ -189,20 +189,24 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Id</th>
+                                            <th>CPF</th>
                                             <th>Nome</th>
+                                            <th>Telefone</th>
                                             <th>E-mail</th>
-                                            <th>Cargo</th>
+                                            <th>Endereço</th>
+                                            <th>Tipo</th>
                                             <th>Editar</th>
                                             <th>Excluir</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Id</th>
+                                            <th>CPF</th>
                                             <th>Nome</th>
+                                            <th>Telefone</th>
                                             <th>E-mail</th>
-                                            <th>Cargo</th>
+                                            <th>Endereço</th>
+                                            <th>Tipo</th>
                                             <th>Editar</th>
                                             <th>Excluir</th>
                                         </tr>
@@ -210,10 +214,12 @@
                                     <tbody>
                                       <?php foreach($usuarios as $usuario):?>
                                           <tr>
-                                            <td><?= $usuario['id'] ?></td>
-                                            <td><?= $usuario['nome'] ?></td>
-                                            <td><?= $usuario['email'] ?></td>
-                                            <td><?= $usuario['descricao'] ?></td>
+                                            <td><?= $usuario['cpf'] ? $usuario['cpf'] : 'Sem Cadastro'?></td>
+                                            <td><?= $usuario['nome'] ? $usuario['nome'] : 'Sem Cadastro'?></td>
+                                            <td><?= $usuario['telefone'] ? $usuario['telefone'] : 'Sem Cadastro'?></td>
+                                            <td><?= $usuario['email'] ? $usuario['email'] : 'Sem Cadastro'?></td>
+                                            <td><?= $usuario['endereco_id']? '<a href="./actions/endereco.php?id=' . $usuario['id']. '">' . '<span>Visualizar</span> </a>': 'Sem Cadastro'?></td>
+                                            <td><?= $usuario['descricao'] ? $usuario['descricao'] : 'Sem Cadastro'?></td>
                                             <td><?= '<a href="./actions/editar.php?id=' . $usuario['id']. '">' . '<i class="fa fa-pen"></i> </a>'?></td>
                                             <td><?= '<a href="./actions/excluir.php?id=' . $usuario['id'] . '">' . '<i class="fa fa-trash"></i> </a>'?></td>
                                           </tr>
