@@ -26,7 +26,7 @@
     $url = match($usuario['tipo']){
       'admin' => '/projects/crud-php/src/views/administrador.php',
       'colaborador' => '/projects/crud-php/src/views/colaborador.php',
-      default => '/projects/crud-php/src/views/index.html'
+      default => '/projects/crud-php/src/views/index.php'
     };
 
     header("location: $url");

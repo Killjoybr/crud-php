@@ -1,8 +1,12 @@
 <?php 
     session_start();
+
+    if($_SESSION['tipo'] != 'cliente'){
+        header('location: ../index.php?mensagem=Você não tem permissão para acessar esta página');
+    }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
 
@@ -38,9 +42,7 @@
             <!-- Main Content -->
             <div id="content">
 
-                <!-- Begin Page Content -->
-
-                <!-- /.container-fluid -->
+                <p>Olá, <?=$_SESSION['usuario']?>!</p>
 
             </div>
             <!-- End of Main Content -->
