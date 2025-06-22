@@ -1,9 +1,16 @@
 <?php 
+    require_once($_SERVER['DOCUMENT_ROOT'].'/projects/crud-php/config/conexao.php');
     session_start();
 
     if($_SESSION['tipo'] != 'cliente'){
-        header('location: ../index.php?mensagem=Você não tem permissão para acessar esta página');
+        session_destroy();
+        header('location: ../../index.php?mensagem=Você não tem permissão para acessar esta página');
     }
+
+    $sql = "SELECT * FROM contrato WHERE cliente_id = :cliente_id";
+    $stmt = $conexao->prepare($sql);
+    $stmt->bindParam(':cliente_id', $_SESSION['id']);
+    $stmt->execute();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -25,25 +32,42 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
 
 <body id="page-top">
 
-    <?php include_once('./componentes/componente-topbar.php')?>
+    <?php include_once($_SERVER['DOCUMENT_ROOT'].'/projects/crud-php/src/componentes/navbar.php')?>
 
     <!-- Page Wrapper -->
     <div id="wrapper">
 
         <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column" style="min-height: 100vh;">
+        <div id="content-wrapper" class="d-flex flex-column" style="min-height: 90vh;">
+
+        <h1 class="h1 mb-4 text-center">Olá, <?=$_SESSION['usuario']?>!</h1>
 
             <!-- Main Content -->
-            <div id="content">
-
-                <p>Olá, <?=$_SESSION['usuario']?>!</p>
-
+            <div id="content" class="bg-gray">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light border rounded">
+                                <h5 class="text-center">Contratos</h5>
+                                <p>Implementar leitura de contratos</p>
+                                <a href="#bottom" class="btn btn-primary mt-4 d-flex justify-content-center">Solicitar contrato</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light border rounded">
+                                <h5 class="text-center">Cuidadores</h5>
+                                <p>Implementar leitura</p>
+                                <p class="mt-4 d-flex justify-content-center"> <small>Caso tenha interesse em trocar algum cuidador(a) entre em contato por e-mail informando o motivo!</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- End of Main Content -->
 
@@ -68,27 +92,7 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
-    <!-- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-    <?php include_once('./componentes/modal-editar.php')?>
+    <?php include_once("/projects/crud-php/src/componentes/logout.php")?>
 
     <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
