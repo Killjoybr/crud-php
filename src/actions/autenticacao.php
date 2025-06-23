@@ -21,12 +21,13 @@
 
     $_SESSION['email'] = $_REQUEST['email'];
     $_SESSION['usuario'] = $usuario['nome'];
-    $_SESSION['tipo'] = $usuario['usuario_tipo'];
+    $_SESSION['tipo'] = $usuario['descricao'];
+    $_SESSION['id'] = $usuario['id'];
 
-    $url = match($usuario['tipo']){
-      'admin' => '/projects/crud-php/src/views/administrador.php',
-      'colaborador' => '/projects/crud-php/src/views/colaborador.php',
-      default => '/projects/crud-php/src/views/index.php'
+    $url = match($_SESSION['tipo']){
+      'admin' => '/projects/crud-php/src/tabela.php',
+      'cuidador' => '/projects/crud-php/src/views/cuidador.php',
+      default => '/projects/crud-php/src/views/cliente.php'
     };
 
     header("location: $url");
