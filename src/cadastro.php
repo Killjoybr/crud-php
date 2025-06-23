@@ -1,5 +1,6 @@
 <?php
-  require_once($_SERVER['DOCUMENT_ROOT'].'/projects/crud-php/config/conexao.php');
+  try {
+      require_once($_SERVER['DOCUMENT_ROOT'].'/projects/crud-php/config/conexao.php');
   
   $nome = $_REQUEST['nome'];
   $email = $_REQUEST['email'];
@@ -19,4 +20,10 @@
   $statement->execute();
 
   $statement ? header('Location: ../index.php?mensagem=Cadastro efetuado com sucesso!') : header('Location: ../index.php?mensagem=Erro ao cadastrar usuário!'); 
+  } catch (PDOException $e) {
+      header('Location: ../index.php?mensagem=Erro no banco de dados! ' . $e->getMessage());
+  } catch (Exception $e) {
+      header('Location: ../index.php?mensagem=Erro inesperado! ' . $e->getMessage());
+    
+  }
 ?>
