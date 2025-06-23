@@ -33,7 +33,7 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Crie sua Conta!</h1>
                             </div>
-                            <form class="user" method="POST" action="../cadastro.php">
+                            <form class="user" method="POST" action="">
                                     <div class="form-group">
                                         <input type="text" class="text-center form-control form-control-user" id="nome" placeholder="Digite seu nome:" name="nome" required>
                                     </div>
@@ -95,7 +95,14 @@
         $('#cep').mask('00000-000');
     });
 
-    const dados = {
+    // Intercepta o envio do formulário para enviar via AJAX
+    $('.user').on('submit', function(e) {
+        e.preventDefault();
+
+        const $submitButton = $(this).find('input[type="submit"]');
+        $submitButton.val('Enviando...').prop('disabled', true);
+
+        const dados = {
             nome: $('#nome').val(),
             email: $('#email').val(),
             telefone: $('#tel').cleanVal(),
@@ -103,31 +110,25 @@
             senha: $('#senha').val()
         };
 
-    $.ajax({
+        $.ajax({
             url: '/projects/crud-php/src/cadastro.php',
             method: 'POST',
             data: dados,
             dataType: 'json',
             success: function(response) {
                 // Manipula a resposta de sucesso do servidor
-                console.log('Resposta do servidor:', response);
                 if (response.status === 'success') {
                     alert('Cadastro realizado com sucesso!');
-                    // Você pode redirecionar, limpar o formulário, etc.
                     window.location.href = '/projects/crud-php/index.php';
                 } else {
                     alert('Erro no cadastro: ' + (response.message || 'Ocorreu um erro desconhecido.'));
                 }
             },
-            error: function(xhr, status, error) {
-                // Manipula erros na requisição AJAX
-                console.error('Erro na requisição AJAX:', status, error, xhr.responseText);
-                alert('Houve um problema ao conectar com o servidor. Tente novamente.');
-            },
             complete: function() {
-                // Executa sempre, independentemente de sucesso ou erro
-                $submitButton.val('Cadastrar').prop('disabled', false); // Restaura o botão
+                $submitButton.val('Cadastrar').prop('disabled', false);
+                window.location.href = '/projects/crud-php/index.php';
             }
         });
+    });
 </script>
 </html>
