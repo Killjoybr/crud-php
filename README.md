@@ -47,25 +47,74 @@
 <details>
   <summary>Conexão com DB</summary>
 
+  ```php
+  $host = $env["HOST"];
+  $port = $env["PORT"];
+  $username = $env["USER"];
+  $password = $env["PASSWORD"];
+  $database = $env["DB"];
 
+  try {
+    $conexao = NEW PDO(
+        'mysql:host='.$host.';
+        port='.$port.';
+        dbname='.$database,
+        $username,
+        $password
+    );
+  } catch(Exception $e){
+    echo "<h1>Erro ao carregar conexao com banco de dados</h1>";
+    die();
+  }
+  ```
 </details>
 
 <details>
   <summary>Controle de Acesso</summary>
 
-
+  ```php
+  if($_SESSION['tipo'] != 'cuidador'){
+    session_destroy();
+    header('location: /projects/crud-php/index.php?mensagem=Você não tem permissão para acessar esta página');
+  }
+  ```
 </details>
 
 <details>
   <summary>Modularização de Componentes</summary>
-
-
+  
+  Componentes são basicamente arquivos html com seções dividas, uma div por exemplo ou trechos de lógica php como controle de acesso.
+  ```php
+  <?php include_once('./componentes/sidebar-admin.php')?>
+  ```
 </details>
 
 <details>
   <summary>Uso de sessão</summary>
 
+  Uso do conceito de sessão, para guardar variáveis pelo site.
+  ```php
+  session_start();
 
+    $_SESSION['email'] = $_REQUEST['email'];
+    $_SESSION['usuario'] = $usuario['nome'];
+    $_SESSION['tipo'] = $usuario['descricao'];
+    $_SESSION['id'] = $usuario['id'];
+
+    $url = match($_SESSION['tipo']){
+      'admin' => '/projects/crud-php/src/tabela.php',
+      'cuidador' => '/projects/crud-php/src/views/cuidador.php',
+      default => '/projects/crud-php/src/views/cliente.php'
+    };
+
+    header("location: $url");
+  ```
 </details>
 
 ## Considerações finais
+
+PHP é muito versátil na WEB, um tempo atrás ouvi sobre seu uso no Wordpress e fiquei confuso, após aprender o conceito de modularização, utilizando `include`, acredito que grande parte do Wordpress possa ser replicado dessa forma, de forma mínima. 
+
+MySQL, SGBD muito bom para modelar e com abstração das consultas e manipulação do Banco de Dados.
+
+Noções gerais sobre desenvolvimento, o uso de frameworks e bibliotecas possibilitou agilizar o desenvolvimento do sistema.
