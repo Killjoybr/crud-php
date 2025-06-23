@@ -35,16 +35,19 @@
                             </div>
                             <form class="user" method="POST" action="../cadastro.php">
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Digite seu nome:" name="nome" required>
+                                        <input type="text" class="text-center form-control form-control-user" id="nome" placeholder="Digite seu nome:" name="nome" required>
                                     </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Digite seu e-mail:" name="email" required>
+                                    <input type="email" class="text-center form-control form-control-user" id="email" placeholder="Digite seu e-mail:" name="email" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="tel" class="form-control form-control-user" id="examplePhone" placeholder="Digite seu telefone:" name="telefone" required>
+                                    <input type="int" class="text-center form-control form-control-user" id="tel" placeholder="Digite seu telefone:" name="telefone" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Digite sua senha:" name="senha">
+                                    <input type="input" class="text-center form-control form-control-user" id="cep" placeholder="Digite seu CEP:" name="cep" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="text-center form-control form-control-user" id="senha" placeholder="Digite sua senha:" name="senha">
                                     <!-- <div class="col-sm-6">
                                         <input type="password" class="form-control form-control-user"
                                             id="exampleRepeatPassword" placeholder="Repeat Password">
@@ -83,12 +86,48 @@
 
     <!-- Custom scripts for all pages-->
     <script src="../../js/sb-admin-2.min.js"></script>
-    <script src="../../vendor/jquery/jquery.mask.min.js"></script>
+    <script src="/projects/crud-php/vendor/jquery/jquery.mask.min.js"></script>
 
 </body>
 <script>
     $(document).ready(function() {
-        $('#examplePhone').mask('+00 (00) 0 0000-0000');
+        $('#tel').mask('+00 (00) 0 0000-0000');
+        $('#cep').mask('00000-000');
     });
+
+    const dados = {
+            nome: $('#nome').val(),
+            email: $('#email').val(),
+            telefone: $('#tel').cleanVal(),
+            cep: $('#cep').cleanVal(),
+            senha: $('#senha').val()
+        };
+
+    $.ajax({
+            url: '/projects/crud-php/src/cadastro.php',
+            method: 'POST',
+            data: dados,
+            dataType: 'json',
+            success: function(response) {
+                // Manipula a resposta de sucesso do servidor
+                console.log('Resposta do servidor:', response);
+                if (response.status === 'success') {
+                    alert('Cadastro realizado com sucesso!');
+                    // Você pode redirecionar, limpar o formulário, etc.
+                    window.location.href = '/projects/crud-php/index.php';
+                } else {
+                    alert('Erro no cadastro: ' + (response.message || 'Ocorreu um erro desconhecido.'));
+                }
+            },
+            error: function(xhr, status, error) {
+                // Manipula erros na requisição AJAX
+                console.error('Erro na requisição AJAX:', status, error, xhr.responseText);
+                alert('Houve um problema ao conectar com o servidor. Tente novamente.');
+            },
+            complete: function() {
+                // Executa sempre, independentemente de sucesso ou erro
+                $submitButton.val('Cadastrar').prop('disabled', false); // Restaura o botão
+            }
+        });
 </script>
 </html>
