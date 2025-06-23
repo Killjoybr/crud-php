@@ -54,9 +54,9 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="p-3 bg-light border rounded">
-                                <h5 class="text-center">Contratos</h5>
-                                <p>Implementar leitura de contratos</p>
-                                <a href="#bottom" class="btn btn-primary mt-4 d-flex justify-content-center">Solicitar contrato</a>
+                                <h5 class="text-center">Contatos de Emergência</h5>
+                                <p>Implementar cadastro de contatos</p>
+                                <a href="#bottom" class="btn btn-primary mt-4 d-flex justify-content-center">Cadastrar contato de emergência</a>
                             </div>
                         </div>
                         <div class="col-md-6">
