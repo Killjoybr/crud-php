@@ -34,19 +34,24 @@
                                 <h1 class="h4 text-gray-900 mb-4">Crie sua Conta!</h1>
                             </div>
                             <form class="user" method="POST" action="">
-                                    <div class="form-group">
-                                        <input type="text" class="text-center form-control form-control-user" id="nome" placeholder="Digite seu nome:" name="nome" required>
-                                    </div>
                                 <div class="form-group">
+                                    <label for="nome">Nome</label>
+                                    <input type="text" class="text-center form-control form-control-user" id="nome" placeholder="Digite seu nome:" name="nome" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">E-mail</label>
                                     <input type="email" class="text-center form-control form-control-user" id="email" placeholder="Digite seu e-mail:" name="email" required>
                                 </div>
                                 <div class="form-group">
+                                    <label for="tel">Telefone</label>
                                     <input type="int" class="text-center form-control form-control-user" id="tel" placeholder="Digite seu telefone:" name="telefone" required>
                                 </div>
                                 <div class="form-group">
+                                    <label for="cep">CEP</label>
                                     <input type="input" class="text-center form-control form-control-user" id="cep" placeholder="Digite seu CEP:" name="cep" required>
                                 </div>
                                 <div class="form-group">
+                                    <label for="senha">Senha</label>
                                     <input type="password" class="text-center form-control form-control-user" id="senha" placeholder="Digite sua senha:" name="senha">
                                     <!-- <div class="col-sm-6">
                                         <input type="password" class="form-control form-control-user"
@@ -76,6 +81,17 @@
         </div>
 
     </div>
+    
+    <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="../../vendor/jquery/jquery.min.js"></script>
@@ -87,7 +103,6 @@
     <!-- Custom scripts for all pages-->
     <script src="../../js/sb-admin-2.min.js"></script>
     <script src="/projects/crud-php/vendor/jquery/jquery.mask.min.js"></script>
-
 </body>
 <script>
     $(document).ready(function() {
