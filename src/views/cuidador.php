@@ -36,6 +36,7 @@
 
     <?php include_once($_SERVER['DOCUMENT_ROOT']."/projects/crud-php/src/componentes/logout.php")?>
     <?php include_once($_SERVER['DOCUMENT_ROOT']."/projects/crud-php/src/componentes/scripts.php")?>
+    <?php include_once($_SERVER['DOCUMENT_ROOT'].'/projects/crud-php/src/componentes/logout.php')?>
 
     <script>
         // Função para atualizar o horário e a data

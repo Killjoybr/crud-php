@@ -142,6 +142,7 @@
     </a>
 
     <?php include_once('./componentes/logout.php')?>
+    <?php include_once('./componentes/acessibilidade.php')?>
 
     <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>

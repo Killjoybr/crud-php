@@ -93,6 +93,7 @@
     </a>
 
     <?php include_once("/projects/crud-php/src/componentes/logout.php")?>
+    <?php include_once($_SERVER['DOCUMENT_ROOT'].'/projects/crud-php/src/componentes/logout.php')?>
 
     <!-- Bootstrap core JavaScript-->
     <script src="../vendor/jquery/jquery.min.js"></script>
